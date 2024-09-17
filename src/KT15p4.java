@@ -27,43 +27,53 @@ class Xau {
         } catch (NumberFormatException e) {
             return false;
         }
-        String tmp2 = String.valueOf(tmp.charAt(3)) + String.valueOf(tmp.charAt(4));
-        tmp2 = tmp2.toLowerCase();
-        if (!tmp2.equals("dc") && !tmp2.equals("at") && !tmp2.equals("cn")) return false;
-        String tmp3 = String.valueOf(tmp.charAt(5)) + String.valueOf(tmp.charAt(6)) + String.valueOf((tmp.charAt(7)));
+
         try {
+            String tmp2 = String.valueOf(tmp.charAt(3)) + String.valueOf(tmp.charAt(4));
+            tmp2 = tmp2.toLowerCase();
+            if (!tmp2.equals("dc") && !tmp2.equals("at") && !tmp2.equals("cn")) return false;
+        } catch (Exception e) {
+            return false;
+        }
+        try {
+            String tmp3 = String.valueOf(tmp.charAt(5)) + String.valueOf(tmp.charAt(6)) + String.valueOf((tmp.charAt(7)));
             int k = Integer.parseInt(tmp3);
-        } catch (NumberFormatException e) {
+        } catch (Exception e) {
             return false;
         }
         return true;
     }
 
     public boolean isBillCode(String tmp) {
-        if (tmp.charAt(0) != 'N' && tmp.charAt(0) != 'n' && tmp.charAt(0) != 'x' && tmp.charAt(0) != 'X') return false;
-        String tmp1 = String.valueOf(tmp.charAt(1)) + String.valueOf(tmp.charAt(2)) + String.valueOf((tmp.charAt(3)));
         try {
-            int k = Integer.parseInt(tmp1);
-        } catch (NumberFormatException e) {
-            return false;
-        }
+            if (tmp.charAt(0) != 'N' && tmp.charAt(0) != 'n' && tmp.charAt(0) != 'x' && tmp.charAt(0) != 'X')
+                return false;
+            String tmp1 = String.valueOf(tmp.charAt(1)) + String.valueOf(tmp.charAt(2)) + String.valueOf((tmp.charAt(3)));
+            try {
+                int k = Integer.parseInt(tmp1);
+            } catch (NumberFormatException e) {
+                return false;
+            }
 
-        String tmp2 = String.valueOf(tmp.charAt(4)) + String.valueOf(tmp.charAt(5)) + String.valueOf((tmp.charAt(6))) + String.valueOf(tmp.charAt(7));
-        if (!tmp2.equals("PTIT") && !tmp2.equals("ptit")) return false;
+            String tmp2 = String.valueOf(tmp.charAt(4)) + String.valueOf(tmp.charAt(5)) + String.valueOf((tmp.charAt(6))) + String.valueOf(tmp.charAt(7));
+            if (!tmp2.equals("PTIT") && !tmp2.equals("ptit")) return false;
 
-        String tmp3 = String.valueOf(tmp.charAt(8)) + String.valueOf(tmp.charAt(9));
-        try {
-            int k = Integer.parseInt(tmp3);
-        } catch (NumberFormatException e) {
+            String tmp3 = String.valueOf(tmp.charAt(8)) + String.valueOf(tmp.charAt(9));
+            try {
+                int k = Integer.parseInt(tmp3);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+            String tmp4 = String.valueOf(tmp.charAt(8)) + String.valueOf(tmp.charAt(9)) + String.valueOf((tmp.charAt(10))) + String.valueOf(tmp.charAt(11));
+            try {
+                int k = Integer.parseInt(tmp4);
+            } catch (NumberFormatException e) {
+                return false;
+            }
+            return true;
+        } catch (Exception e) {
             return false;
         }
-        String tmp4 = String.valueOf(tmp.charAt(8)) + String.valueOf(tmp.charAt(9)) + String.valueOf((tmp.charAt(10))) + String.valueOf(tmp.charAt(11));
-        try {
-            int k = Integer.parseInt(tmp4);
-        } catch (NumberFormatException e) {
-            return false;
-        }
-        return true;
 
 
     }
