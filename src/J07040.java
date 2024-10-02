@@ -20,20 +20,21 @@ public class J07040 {
         }
 
         TreeSet<String> result = new TreeSet<>();
+        ArrayList<String> res = new ArrayList<>();
         while (scanner.hasNextLine()) {
             String currentString = scanner.nextLine();
             String[] name = currentString.trim().split("\\s+");
             for (String string : name) {
                 String tmp = string.toLowerCase();
-                if (hs.contains(tmp) && !result.contains(tmp)) {
-                    result.add(tmp);
-                }
+                res.add(tmp);
             }
         }
 
-        for (String string : result) {
-            System.out.println(string);
+        for (String string : res) {
+            if (!result.contains(string) && hs.contains(string)) {
+                System.out.println(string);
+                result.add(string);
+            }
         }
-
     }
 }
