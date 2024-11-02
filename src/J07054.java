@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.*;
-import java.util.function.BiFunction;
 
 public class J07054 {
     public static void main(String[] args) throws IOException {
@@ -31,17 +30,19 @@ public class J07054 {
         });
 
         // Gán hạng
-        int rank = 1;
-        int cnths = 2;
-        students.get(0).setRank(rank);
-        for (int i = 1; i < students.size(); i++) {
-            if (students.get(i).getDiemTrungBinh() == students.get(i - 1).getDiemTrungBinh()) {
-                students.get(i).setRank(rank);
-                ++cnths;
+        float currentVal = 0;
+        int currentRank = 0;
+        int tmp = 0;
+        for (int i = 0; i < n; ++i) {
+            if (currentVal == students.get(i).getDiemTrungBinh()) {
+                students.get(i).setRank(currentRank);
+                tmp += 1;
             } else {
-                rank = cnths;
-                students.get(i).setRank(rank);
+                currentRank += (tmp + 1);
+                tmp = 0;
+                students.get(i).setRank(currentRank);
             }
+            currentVal = (float) students.get(i).getDiemTrungBinh();
         }
 
         // In kết quả
