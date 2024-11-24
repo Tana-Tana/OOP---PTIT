@@ -22,3 +22,21 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/CarManager/nbproject/private/
+/TestSwing/nbproject/private/
+/TestSwing/build/
+/JavaApplication23/nbproject/private/
+/JavaApplication23/build/
+/PracticeManager/nbproject/private/
+/PracticeManager/build/
+/oop/nbproject/private/
+/oop/build/
+/MONHOC(1)/build/
+/MONHOC(1)/nbproject/private/
+/Main/nbproject/private/
+/oop1/nbproject/private/
+/oop1/build/
+/oop2/nbproject/private/
+/oop2/build/
+/oop3/nbproject/private/
+/oop3/build/
