@@ -34,7 +34,6 @@ class Point3D {
         int[] AC = {p1.x - p3.x, p1.y - p3.y, p1.z - p3.z};
         int[] AD = {p1.x - p4.x, p1.y - p4.y, p1.z - p4.z};
 
-        // Calculate determinant using arrays
         long det = (long) AB[0] * AC[1] * AD[2]
                 + (long) AB[1] * AC[2] * AD[0]
                 + (long) AB[2] * AC[0] * AD[1]
